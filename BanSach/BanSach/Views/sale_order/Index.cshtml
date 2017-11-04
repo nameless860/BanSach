@@ -1,0 +1,51 @@
+﻿@model IEnumerable<BanSach.Models.sale_order>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.agency.agency_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sale_order_created_at)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sale_order_total_money)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sale_order_status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.agency.agency_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sale_order_created_at)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sale_order_total_money)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sale_order_status)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.sale_order_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.sale_order_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.sale_order_id })
+        </td>
+    </tr>
+}
+
+</table>
